@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173b35">
+  <meta name="description" content="Kuis interaktif dan gamifikasi pembelajaran sejarah Nusa Tenggara Timur. Bisa digunakan secara luring.">
+  <title>Jejak NTT — Kuis Sejarah Interaktif</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#konten">Lewati ke konten utama</a>
+  <header class="topbar">
+    <a class="brand" href="#beranda" aria-label="Jejak NTT, beranda">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span><strong>JEJAK NTT</strong><small>Belajar sejarah dengan cara seru</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">☰ <span class="sr-only">Buka navigasi</span></button>
+    <nav id="mainNav" aria-label="Navigasi utama">
+      <a href="#beranda">Beranda</a><a href="#jelajah">Jelajah Materi</a><a href="#kuis">Mulai Kuis</a><a href="#papan-skor">Papan Skor</a><a href="#tentang">Tentang</a>
+    </nav>
+  </header>
+
+  <main id="konten">
+    <section class="hero" id="beranda">
+      <div class="hero-copy">
+        <p class="eyebrow">MULTIMEDIA INTERAKTIF • SEJARAH NUSA TENGGARA TIMUR</p>
+        <h1>Kenali masa lalu.<br><span>Rawat cerita NTT.</span></h1>
+        <p class="hero-text">Jelajahi garis waktu, kenali peristiwa penting, lalu uji pengetahuanmu lewat kuis adaptif. Setiap jawaban membantumu belajar selangkah lebih jauh.</p>
+        <div class="hero-actions"><a class="button primary" href="#kuis">Mulai tantangan <span aria-hidden="true">→</span></a><a class="button secondary" href="#jelajah">Jelajahi materi</a></div>
+        <div class="hero-stats" aria-label="Ringkasan konten"><div><strong>10+</strong><span>Topik materi</span></div><div><strong>15</strong><span>Bank soal</span></div><div><strong>Offline</strong><span>Siap belajar</span></div></div>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi abstrak pulau dan laut Nusa Tenggara Timur" role="img">
+        <div class="sun"></div><div class="island island-one"></div><div class="island island-two"></div><div class="wave wave-one"></div><div class="wave wave-two"></div>
+        <div class="art-label"><span>01 / 10</span><strong>Jejak sejarah, warisan bersama.</strong></div>
+      </div>
+    </section>
+
+    <section class="section intro-grid">
+      <div><p class="eyebrow">MENGAPA BELAJAR SEJARAH?</p><h2>Sejarah bukan hanya tanggal.</h2></div>
+      <p>Sejarah membantu kita memahami perubahan masyarakat, pertemuan budaya, perjuangan, dan pembentukan daerah. Materi di situs ini disajikan sebagai pengantar; untuk tugas akademik, cocokkan kembali dengan sumber sejarah yang dirujuk.</p>
+    </section>
+
+    <section class="section" id="jelajah">
+      <div class="section-heading"><div><p class="eyebrow">JELAJAH MATERI</p><h2>Sepuluh pintu menuju masa lalu</h2></div><label class="search-label" for="materiSearch">Cari topik <input id="materiSearch" type="search" placeholder="Mis. provinsi, Portugis..." autocomplete="off"></label></div>
+      <div class="topic-grid" id="topicGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="timeline-section">
+      <div class="section-heading"><div><p class="eyebrow">GARIS WAKTU</p><h2>Perubahan dalam lintasan waktu</h2></div><p class="muted">Pilih titik untuk membaca ringkasan.</p></div>
+      <div class="timeline" id="timeline"></div>
+      <article class="timeline-detail" id="timelineDetail" aria-live="polite"><span class="detail-kicker">PILIH PERIODE</span><h3>Temukan kisahnya</h3><p>Pilih salah satu titik pada garis waktu untuk menampilkan ringkasan.</p></article>
+    </section>
+
+    <section class="section quiz-section" id="kuis">
+      <div class="quiz-intro"><p class="eyebrow">TANTANGAN PENGETAHUAN</p><h2>Seberapa jauh kamu mengenal sejarah NTT?</h2><p>Jawab soal, baca pembahasannya, dan dapatkan rekomendasi belajar berdasarkan performamu. Kuis berjalan dengan aturan lokal, jadi koneksi internet tidak diperlukan setelah aset tersimpan.</p>
+        <div class="quiz-note"><span aria-hidden="true">✦</span><span><strong>Pelatih belajar lokal</strong><br>Asisten ini memakai aturan dan data lokal; bukan layanan AI daring.</span></div>
+      </div>
+      <div class="quiz-card" id="quizCard">
+        <div class="quiz-top"><span class="pill" id="difficultyBadge">TINGKAT DASAR</span><span id="questionCounter">Siap memulai</span></div>
+        <div class="progress-track" role="progressbar" aria-label="Kemajuan kuis" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="quizProgress"><span id="progressFill"></span></div>
+        <div id="quizContent">
+          <div class="quiz-empty"><div class="quiz-icon" aria-hidden="true">✦</div><h3>Mulai dari satu pertanyaan</h3><p>Kuis terdiri dari 10 soal per sesi. Tingkat soal menyesuaikan hasil jawabanmu.</p><button class="button primary" id="startQuiz">Mulai kuis</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section lower-grid">
+      <div class="score-panel" id="papan-skor">
+        <p class="eyebrow">REKAM JEJAK</p><h2>Papan skor lokal</h2><p class="muted">Skor disimpan pada perangkat yang sedang digunakan. Data tidak dikirim ke server.</p>
+        <div id="scoreBoard"><p class="empty-state">Belum ada skor. Selesaikan kuis untuk mengisi papan skor.</p></div>
+        <button class="button secondary small" id="clearScores">Hapus riwayat skor</button>
+      </div>
+      <aside class="coach-panel" id="coachPanel"><div class="coach-symbol" aria-hidden="true">✧</div><p class="eyebrow">ASISTEN BELAJAR</p><h2>Belajar sesuai kebutuhanmu</h2><p id="coachText">Setelah kamu menyelesaikan kuis, asisten akan menyarankan topik untuk dipelajari kembali.</p><button class="text-button" id="showCoach">Minta saran belajar <span aria-hidden="true">→</span></button><div id="coachResponse" class="coach-response" aria-live="polite" hidden></div></aside>
+    </section>
+
+    <section class="section sources-section" id="tentang">
+      <div><p class="eyebrow">TENTANG PROYEK</p><h2>Belajar digital, tetap berpijak pada sumber.</h2><p>Jejak NTT adalah purwarupa pembelajaran sejarah yang dibuat untuk memenuhi studi kasus nomor 10 pada LKM Multimedia: aplikasi kuis interaktif dan gamifikasi pembelajaran sejarah NTT berbasis scripting.</p><p>Konten ringkas ini bukan pengganti buku sejarah atau arsip primer. Pengembangan lanjutan perlu menambahkan penelaahan ahli sejarah dan sumber lokal yang lebih beragam.</p></div>
+      <div class="source-list"><h3>Sumber rujukan</h3>
+        <a href="https://nttprov.go.id/profil" target="_blank" rel="noopener">Pemerintah Provinsi NTT — Profil dan sejarah NTT ↗</a>
+        <a href="https://repositori.kemendikdasmen.go.id/27448/" target="_blank" rel="noopener">Repositori Kemendikdasmen — Sejarah Daerah Nusa Tenggara Timur ↗</a>
+        <a href="https://bkad.kupangkota.go.id/informasi_profil/Sejarah" target="_blank" rel="noopener">BKAD Kota Kupang — Sejarah Kota Kupang ↗</a>
+        <a href="https://ntt.kemenag.go.id/artikel/15904/sejarah-kanwil-kementerian-agama-prov-ntt" target="_blank" rel="noopener">Kanwil Kemenag NTT — Sejarah wilayah NTT ↗</a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="brand footer-brand"><span class="brand-mark" aria-hidden="true">✦</span><span><strong>JEJAK NTT</strong><small>Proyek Multimedia • ITAF Kupang</small></span></div><p>Dirancang untuk belajar. Hargai sumber, budaya, dan beragam ingatan masyarakat.</p><a href="#beranda">Kembali ke atas ↑</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="data/content.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

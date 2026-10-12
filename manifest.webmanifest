@@ -1,0 +1,11 @@
+{
+  "name": "Jejak NTT — Kuis Sejarah Interaktif",
+  "short_name": "Jejak NTT",
+  "description": "Belajar sejarah Nusa Tenggara Timur melalui materi dan kuis adaptif.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f6f3eb",
+  "theme_color": "#173b35",
+  "lang": "id",
+  "icons": []
+}
